@@ -1,6 +1,6 @@
-import db from "../db.js";
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
+import db from '../database/db';
 
 
 export async function postUser(req, res) {

@@ -5,9 +5,11 @@ dotenv.config();
 
 const mongoClient = new MongoClient(process.env.DATABASE_URL);
 
-await mongoClient.connect();
-
-const db = mongoClient.db();
+try {
+    await mongoClient.connect()
+} catch (err) {
+    console.log(err.message)
+}
 
 export default db;
 
