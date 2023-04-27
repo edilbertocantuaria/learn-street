@@ -1,4 +1,4 @@
-import { db } from '../db.js';
+import db from '../db.js';
 
 
 export async function authValidation(req, res, next) {
@@ -18,6 +18,7 @@ export async function authValidation(req, res, next) {
         next();
     }
     catch (err) {
-        res.status(500).send(err.message)
+        // res.status(500).send(err.message)
+        res.status(500).send("err.message auth schema")
     }
 }

@@ -3,7 +3,6 @@ import cors from 'cors';
 import router from './routers/routesIndex.js';
 import chalk from 'chalk';
 
-
 const app = express();
 
 app.use(express.json());

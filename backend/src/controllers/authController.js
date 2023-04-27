@@ -6,11 +6,11 @@ import { v4 as uuid } from 'uuid';
 export async function postUser(req, res) {
     const { name, email, password, passwordConfirm } = req.body;
 
-    try{
+    try {
         const userAlreadyRegistered = await db.collection('users').findOne({ email: email });
         if (userAlreadyRegistered) return res.sendStatus(409);
 
-        const passwordHash = bcrypt.hashSync(user.password, 10);
+        const passwordHash = bcrypt.hashSync(password, 10);
         await db.collection("users").insertOne({
             name: name.trim(),
             email: email.trim(),
@@ -18,10 +18,10 @@ export async function postUser(req, res) {
         });
         res.status(201).send("New user created successfully")
 
-    } catch (err){
-        res.status(500).send(err.message);
+    } catch (err) {
+        res.status(500).send("err.message auth controller");
     }
-    
+
 }
 
 export async function loginUser(req, res) {
