@@ -9,5 +9,7 @@ const authRouter = Router();
 
 authRouter.post("/singup", validateSchema(postUserSchema), postUser);
 
+//rota de login
+
 export default authRouter
 

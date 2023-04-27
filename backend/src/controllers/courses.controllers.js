@@ -1,3 +1,5 @@
+import db from '../database/db';
+
 export async function createCourse(req, res) {
     const { title, price, description } = req.body;
 
@@ -12,7 +14,7 @@ export async function createCourse(req, res) {
         }
 
         const oldCourse = await db.collection("courses").find(newCourse);
-        if(oldCourse) return res.status(409).send("You've already created this course")
+        if(oldCourse) return res.status(409).send("You've already created this course");
         
         await db.collection("courses").insertOne(newCourse);
         res.sendStatus(201);
