@@ -1,7 +1,7 @@
 export default function SignInPage(){
     return(
         <>
-        teste
+        teste2
         </>
     )
 }
