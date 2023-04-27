@@ -11,5 +11,5 @@ const authRouter = Router();
 
 authRouter.post("/singup", validateSchema(postUserSchema), postUser);
 
-
+export default authRouter
 
