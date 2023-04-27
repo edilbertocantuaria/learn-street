@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
-import db from '../database/db';
+import db from '../database/db.js';
 
 
 export async function postUser(req, res) {
@@ -16,7 +16,7 @@ export async function postUser(req, res) {
             email: email.trim(),
             password: passwordHash.trim()
         });
-        res.status(201).send("New user created successfully")
+        res.status(201).send("New user created successfully");
 
     } catch (err) {
         res.status(500).send("err.message auth controller");
