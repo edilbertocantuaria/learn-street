@@ -5,4 +5,6 @@ import { createCourse } from '../controllers/courses.controllers.js';
 
 const courseRouter = Router();
 
-courseRouter.post("/courses", validateSchema(courseSchema), createCourse)
+courseRouter.post("/courses", validateSchema(courseSchema), createCourse);
+
+export default courseRouter;
