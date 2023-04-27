@@ -4,7 +4,7 @@ import db from '../database/db';
 
 
 export async function postUser(req, res) {
-    const { name, email, password, passwordConfirm } = req.body;
+    const { name, email, password } = req.body;
 
     try {
         const userAlreadyRegistered = await db.collection('users').findOne({ email: email });
