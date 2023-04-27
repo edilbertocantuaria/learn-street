@@ -1,7 +1,7 @@
 import db from "../database/db.js";
 
 export async function checkout(req, res) {
-    const { name, card_number, card_valid_date, card_security_code } = req.body;
+    const { name, card_number, card_valid_date, card_security_code, email } = req.body;
 
     try {
         const session = res.locals.session;
@@ -19,6 +19,7 @@ export async function checkout(req, res) {
             card_number,
             card_valid_date,
             card_security_code,
+            email,
             checkoutCart
         }
 
