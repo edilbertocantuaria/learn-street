@@ -12,6 +12,7 @@ export default function FooterHome() {
 }
 
 const FooterContainer = styled.div`
+box-shadow: 0 -4px 4px rgba(0,0,0,0.2);
 background-color: #79aa81;
 width: 100%;
 height: 88px;
