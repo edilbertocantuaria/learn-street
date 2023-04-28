@@ -6,7 +6,7 @@ export async function checkout(req, res) {
     try {
         const session = res.locals.session;
 
-        const cart = await db.collection("cart").find({ userId: session.userId }).toArray();
+        const cart = await db.collection("cart").find({ userId: ObjectId('644c3c15abc5e5a308b4f438') }).toArray(); //mudar de volta para session.userId
 
         const checkoutCart = cart.map(c => {
             const { userId, ...newCart } = c;
@@ -14,7 +14,7 @@ export async function checkout(req, res) {
         });
 
         const checkout = {
-            userId: session.userId,
+            userId: ObjectId('644c3c15abc5e5a308b4f438'), // mudar de volta para session.userId,
             name,
             card_number,
             card_valid_date,
@@ -25,7 +25,7 @@ export async function checkout(req, res) {
 
         await db.collection("checkout").insertOne(checkout);
 
-        const emptyCart = await db.collection("cart").deleteMany({ userId: session.userId });
+        const emptyCart = await db.collection("cart").deleteMany({ userId: ObjectId('644c3c15abc5e5a308b4f438') }); //mudar de volta para session.userId
         if (emptyCart.deletedCount === 0) return res.sendStatus(404);
 
         res.sendStatus(200);
@@ -34,24 +34,25 @@ export async function checkout(req, res) {
         res.status(500).send(err.message)
     }
 }
-
 export async function getCart(req, res) {
     const { userId } = res.locals.session;
     try {
-        const purchaseCart = await db.collection("cart").find({ userId }).toArray();
+        const purchaseCart = await db.collection().find(ObjectId('644c3c15abc5e5a308b4f438')).toArray(); //mudar de volta para session.userId
+
         res.send(purchaseCart)
     }
     catch (err) {
         res.status(500).send(err.message)
     }
+
 }
 
 export async function addCart(req, res) {
     const { course_name, course_cost } = req.body
     try {
-        const session = res.locals.session
+        const sessao = res.locals.session
         const carrinho = await db.collection("cart").insertOne({
-            userId: session.userId,
+            userId: ObjectId('644c3c15abc5e5a308b4f438'), // mudar de volta para session.userId,
             course_name,
             course_cost
         })
