@@ -1,9 +1,11 @@
 import { IoCartSharp } from "react-icons/io5"
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 export default function Cart() {
+    const navigate=useNavigate()
     return (
-        <AddCurso>
+        <AddCurso onClick={()=>navigate("/carrinho")}>
             <IoCartSharp/>
         </AddCurso>
     )

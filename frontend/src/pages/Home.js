@@ -15,11 +15,11 @@ export default function Home() {
         <HomeContainer>
             <Header />
             <CoursesContainer>
-                <CourseCard cor={"#cfb46f"} descricao={"é isso"}/>
-                <CourseCard cor={"#2eb73c"} descricao={"é isso"}/>
-                <CourseCard cor={"#cf6f9d"} descricao={"é isso"}/>
-                <CourseCard cor={"#706fcf"} descricao={"é isso"}/>
-                <CourseCard cor={"#cfb46f"} descricao={"é isso"}/>
+                <CourseCard cor={"#cfb46f"} descricao={"é isso"} inCart={true}/>
+                <CourseCard cor={"#2eb73c"} descricao={"é isso"} inCart={false}/>
+                <CourseCard cor={"#cf6f9d"} descricao={"é isso"} inCart={false}/>
+                <CourseCard cor={"#706fcf"} descricao={"é isso"} inCart={false}/>
+                <CourseCard cor={"#cfb46f"} descricao={"é isso"} inCart={false}/>
 
             </CoursesContainer>
             <FooterHome/>
