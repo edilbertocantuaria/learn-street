@@ -24,6 +24,7 @@ export default function Home() {
 
 
 const CoursesContainer = styled.div`
+background-color: #c3cdc1;
 padding-top: 105px;
 margin-bottom: 105px;
 display: flex;
