@@ -3,9 +3,9 @@ import { useState } from "react"
 import AddCart from "./AddCart"
 
 export default function CourseCard(props) {
-    const [click, setClick] = useState()
+    const [click, setClick] = useState(false)
     return (
-        <Course cor={props.cor} onClick={() => setClick(!click)}>
+        <Course cor={props.cor} inCart={props.inCart} onClick={() => setClick(!click)}>
             {click ? <p>{props.descricao}</p> :
                 <>
                     <p>Malabarismo em 5 passos</p>
@@ -20,6 +20,9 @@ export default function CourseCard(props) {
 }
 
 const Course = styled.div`
+border: solid;
+border-color:#04ff00;
+border-width: ${(props)=>props.inCart===true?"3px":"0px"};
 display: flex;
 flex-direction: column;
 justify-content: space-between;
