@@ -7,7 +7,7 @@ export async function postUser(req, res) {
 
     try {
         const userAlreadyRegistered = await db.collection('users').findOne({ email: email });
-        if (userAlreadyRegistered) return res.sendStatus(409); db
+        if (userAlreadyRegistered) return res.sendStatus(409);
 
         const passwordHash = bcrypt.hashSync(password, 10);
         await db.collection("users").insertOne({
