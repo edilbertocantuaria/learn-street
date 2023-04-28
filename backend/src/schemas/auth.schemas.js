@@ -13,3 +13,4 @@ export const loginSchema = joi.object({
     password: joi.string().required().trim(),
 });
 
+

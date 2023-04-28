@@ -1,5 +1,4 @@
-import db from '../db.js';
-
+import db from "../database/db.js";
 
 export async function authValidation(req, res, next) {
     const { authorization } = req.headers;
