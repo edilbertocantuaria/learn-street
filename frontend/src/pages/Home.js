@@ -17,7 +17,7 @@ export default function Home() {
             <CoursesContainer>
                 <CourseCard cor={"#cfb46f"} descricao={"é isso"} inCart={true}/>
                 <CourseCard cor={"#2eb73c"} descricao={"é isso"} inCart={false}/>
-                <CourseCard cor={"#cf6f9d"} descricao={"é isso"} inCart={false}/>
+                <CourseCard cor={"#cf6f9d"} descricao={"é isso"} inCart={true}/>
                 <CourseCard cor={"#706fcf"} descricao={"é isso"} inCart={false}/>
                 <CourseCard cor={"#cfb46f"} descricao={"é isso"} inCart={false}/>
 
