@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { validateSchema } from "../middlewares/validateSchema.js"
-import { courseSchema } from '../schemas/auth.schemas.js';
+import { courseSchema } from '../schemas/courses.schema.js'
 import { createCourse, getCursos } from '../controllers/courses.controllers.js';
 
 const courseRouter = Router();
