@@ -1,12 +1,19 @@
 import styled from "styled-components"
 import { IoLogOut } from "react-icons/io5"
+import { useNavigate } from "react-router-dom"
 
 export default function Header() {
+    const navigate=useNavigate()
+    function logout() {
+        localStorage.removeItem("usuario")
+        navigate("/")
+      }
+
     return (
         <HeaderContainer>
                 <p>LEARN STREET</p>
                 <div>
-                    <IoLogOut />
+                    <IoLogOut onClick={()=>logout()}/>
                 </div>
         </HeaderContainer>
     )
@@ -16,7 +23,9 @@ const HeaderContainer = styled.div`
 background-color: #79aa81;
 width: 100%;
 height: 88px;
-position: fixed;
+position: absolute;
+top: 0;
+right: 0;
 z-index: 1;
 display: flex;
 align-items: center;
