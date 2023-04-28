@@ -17,7 +17,6 @@ export async function authValidation(req, res, next) {
         next();
     }
     catch (err) {
-        // res.status(500).send(err.message)
-        res.status(500).send("err.message auth schema")
+        res.status(500).send(err.message)
     }
 }
