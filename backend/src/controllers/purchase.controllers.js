@@ -25,7 +25,8 @@ export async function checkout(req, res) {
 
         await db.collection("checkout").insertOne(checkout);
 
-        await db.collection("cart").deleteMany({ userId: session.userId });
+        const emptyCart = await db.collection("cart").deleteMany({ userId: session.userId });
+        if (emptyCart.deletedCount === 0) return res.sendStatus(404);
 
         res.sendStatus(200);
 
