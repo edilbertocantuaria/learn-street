@@ -31,6 +31,19 @@ export async function checkout(req, res) {
     }
 }
 
+export async function getCart(req, res){
+    const {userId} = res.locals.session;
+try{
+    const purchaseCart = await db.collection().find({userId}).toArray();
+
+    res.send(purchaseCart)
+}
+catch(err){
+    res.status(500).send(err.message)
+}
+
+}
+
 export async function addCart(req,res){
     const {course_name,course_cost} =req.body
     try { 
