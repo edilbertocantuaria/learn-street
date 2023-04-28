@@ -1,14 +1,20 @@
 import styled from "styled-components"
-import RemoveCart from "./RemoveCart"
+import { useState } from "react"
+import AddCart from "./AddCart"
 
 export default function CourseCard(props) {
+    const [click, setClick] = useState()
     return (
-        <Course cor={props.cor}>
-            <p>Malabarismo em 5 passos</p>
-            <BottomContainer>
-                <RemoveCart />
-                <p>$100.00</p>
-            </BottomContainer>
+        <Course cor={props.cor} onClick={() => setClick(!click)}>
+            {click ? <p>{props.descricao}</p> :
+                <>
+                    <p>Malabarismo em 5 passos</p>
+                    <BottomContainer>
+                        <AddCart />
+                        <p>$100.00</p>
+                    </BottomContainer>
+                </>
+            }
         </Course>
     )
 }
@@ -28,7 +34,7 @@ p{
 }
 `
 
-const BottomContainer=styled.div`
+const BottomContainer = styled.div`
 display: flex;
     justify-content: space-between;
     align-items: center;

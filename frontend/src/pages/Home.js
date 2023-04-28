@@ -2,17 +2,24 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import CourseCard from "../components/CourseCard";
 import FooterHome from "../components/FooterHome";
+import { useEffect } from "react";
 
 export default function Home() {
+    useEffect(()=>{
+        
+    },[])
+
+    
+
     return (
         <HomeContainer>
             <Header />
             <CoursesContainer>
-                <CourseCard cor={"#cfb46f"}/>
-                <CourseCard cor={"#2eb73c"}/>
-                <CourseCard cor={"#cf6f9d"}/>
-                <CourseCard cor={"#706fcf"}/>
-                <CourseCard cor={"#cfb46f"}/>
+                <CourseCard cor={"#cfb46f"} descricao={"é isso"}/>
+                <CourseCard cor={"#2eb73c"} descricao={"é isso"}/>
+                <CourseCard cor={"#cf6f9d"} descricao={"é isso"}/>
+                <CourseCard cor={"#706fcf"} descricao={"é isso"}/>
+                <CourseCard cor={"#cfb46f"} descricao={"é isso"}/>
 
             </CoursesContainer>
             <FooterHome/>
