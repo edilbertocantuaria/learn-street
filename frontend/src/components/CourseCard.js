@@ -6,10 +6,10 @@ import RemoveCart from "./RemoveCart"
 export default function CourseCard(props) {
     const [click, setClick] = useState(false)
 
-    function addCourse(){
+    function addCart(){
 
     }
-    function removeCourse(){
+    function removeCart(){
 
     }
     return (
@@ -18,7 +18,7 @@ export default function CourseCard(props) {
                 <>
                     <p>Malabarismo em 5 passos</p>
                     <BottomContainer>
-                        {props.inCart===false?<AddCart onClick={() => addCourse()}/>:<RemoveCart onClick={() => removeCourse()}/>}
+                        {props.inCart===false?<AddCart onClick={() => addCart()}/>:<RemoveCart onClick={() => removeCart()}/>}
                         <p>$100.00</p>
                     </BottomContainer>
                 </>
