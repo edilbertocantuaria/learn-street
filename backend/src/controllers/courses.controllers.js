@@ -7,7 +7,6 @@ export async function createCourse(req, res) {
         const session = res.locals.session;
 
         const newCourse = { 
-            userId: "abc", // mudar de volta para session.userId
             title, 
             price, 
             description,
