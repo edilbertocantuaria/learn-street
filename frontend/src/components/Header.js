@@ -3,7 +3,7 @@ import { IoLogOut } from "react-icons/io5"
 import { useNavigate } from "react-router-dom"
 
 export default function Header() {
-    const navigate=useNavigate
+    const navigate=useNavigate()
     function logout() {
         localStorage.removeItem("usuario")
         navigate("/")

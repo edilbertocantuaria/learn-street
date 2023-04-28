@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 export default function AddCourse() {
+    const navigate=useNavigate()
     return (
-        <AddCurso>
+        <AddCurso onClick={navigate("/")}>
             Adicionar Curso
         </AddCurso>
     )
