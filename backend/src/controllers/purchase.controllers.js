@@ -24,32 +24,34 @@ export async function checkout(req, res) {
         }
 
         await db.collection("checkout").insertOne(checkout);
+
+        await db.collection("cart").deleteMany({ userId: session.userId });
+
         res.sendStatus(200);
 
     } catch (err) {
         res.status(500).send(err.message)
     }
 }
+export async function getCart(req, res) {
+    const { userId } = res.locals.session;
+    try {
+        const purchaseCart = await db.collection().find({ userId }).toArray();
 
-export async function getCart(req, res){
-    const {userId} = res.locals.session;
-try{
-    const purchaseCart = await db.collection().find({userId}).toArray();
+        res.send(purchaseCart)
+    }
+    catch (err) {
+        res.status(500).send(err.message)
+    }
 
-    res.send(purchaseCart)
 }
-catch(err){
-    res.status(500).send(err.message)
-}
 
-}
-
-export async function addCart(req,res){
-    const {course_name,course_cost} =req.body
-    try { 
-        const sessao=res.locals.session
-        const carrinho=await db.collection("cart").insertOne({
-            userId:session.userId,
+export async function addCart(req, res) {
+    const { course_name, course_cost } = req.body
+    try {
+        const sessao = res.locals.session
+        const carrinho = await db.collection("cart").insertOne({
+            userId: session.userId,
             course_name,
             course_cost
         })
@@ -61,10 +63,10 @@ export async function addCart(req,res){
     }
 }
 
-export async function removeCart(req,res){
-    const {title}=req.body
-    try { 
-        const result=await db.collection("cart").deleteOne({title})
+export async function removeCart(req, res) {
+    const { title } = req.body
+    try {
+        const result = await db.collection("cart").deleteOne({ title })
         res.status(201).send("Removed from cart")
 
     } catch (err) {

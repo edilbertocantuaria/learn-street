@@ -1,7 +1,7 @@
 import db from "../database/db.js";
 
 export async function createCourse(req, res) {
-    const { title, price, description } = req.body;
+    const { title, price, description, theme } = req.body;
 
     try {
         const session = res.locals.session;
@@ -10,7 +10,8 @@ export async function createCourse(req, res) {
             userId: session.userId, 
             title, 
             price, 
-            description 
+            description,
+            theme 
         }
 
         const oldCourse = await db.collection("courses").find(newCourse);
