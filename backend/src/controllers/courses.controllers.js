@@ -6,16 +6,19 @@ export async function createCourse(req, res) {
     try {
         const session = res.locals.session;
 
-        const newCourse = { 
-            title, 
-            price, 
+        const newCourse = {
+            userId: session.userId,
+            title,
+            price,
             description,
-            theme 
+            theme
         }
 
-        const oldCourse = await db.collection("courses").find(newCourse);
-        if(oldCourse) return res.status(409).send("You've already created this course");
-        
+        const oldCourse = await db.collection("courses").find({ title, userId: session.userId }).toArray();
+        if (oldCourse.length > 0) return res.status(409).send(session);
+
+
+
         await db.collection("courses").insertOne(newCourse);
         res.sendStatus(201);
 
@@ -24,9 +27,9 @@ export async function createCourse(req, res) {
     }
 }
 
-export async function getCursos(req,res){
-    try { 
-        const cursos=await db.collection("courses").find().toArray()
+export async function getCursos(req, res) {
+    try {
+        const cursos = await db.collection("courses").find().toArray()
         res.status(201).send(cursos);
 
     } catch (err) {

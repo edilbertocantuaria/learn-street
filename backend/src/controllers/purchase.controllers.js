@@ -6,7 +6,7 @@ export async function checkout(req, res) {
     try {
         const session = res.locals.session;
 
-        const cart = await db.collection("cart").find({ userId: ObjectId('644c3c15abc5e5a308b4f438') }).toArray(); //mudar de volta para session.userId
+        const cart = await db.collection("cart").find({ userId: session.userId }).toArray();
 
         const checkoutCart = cart.map(c => {
             const { userId, ...newCart } = c;
@@ -14,7 +14,7 @@ export async function checkout(req, res) {
         });
 
         const checkout = {
-            userId: ObjectId('644c3c15abc5e5a308b4f438'), // mudar de volta para session.userId,
+            userId: session.userId,
             name,
             card_number,
             card_valid_date,
@@ -25,34 +25,41 @@ export async function checkout(req, res) {
 
         await db.collection("checkout").insertOne(checkout);
 
-        const emptyCart = await db.collection("cart").deleteMany({ userId: ObjectId('644c3c15abc5e5a308b4f438') }); //mudar de volta para session.userId
-        if (emptyCart.deletedCount === 0) return res.sendStatus(404);
+        /*const emptyCart = await db.collection("cart").deleteMany({ userId: session.userId });
+        if (emptyCart.deletedCount === 0) return res.sendStatus(404);*/
 
         res.sendStatus(200);
+        drainOutCart;
 
     } catch (err) {
         res.status(500).send(err.message)
     }
 }
+
+function drainOutCart() {
+
+    const session = res.locals.session;
+    const emptyCart = db.collection("cart").deleteMany({ userId: session.userId });
+    if (emptyCart.deletedCount === 0) return res.sendStatus(404);
+}
+
 export async function getCart(req, res) {
     const { userId } = res.locals.session;
     try {
-        const purchaseCart = await db.collection().find(ObjectId('644c3c15abc5e5a308b4f438')).toArray(); //mudar de volta para session.userId
-
+        const purchaseCart = await db.collection("cart").find({ userId }).toArray();
         res.send(purchaseCart)
     }
     catch (err) {
         res.status(500).send(err.message)
     }
-
 }
 
 export async function addCart(req, res) {
     const { course_name, course_cost } = req.body
     try {
-        const sessao = res.locals.session
+        const session = res.locals.session
         const carrinho = await db.collection("cart").insertOne({
-            userId: ObjectId('644c3c15abc5e5a308b4f438'), // mudar de volta para session.userId,
+            userId: session.userId,
             course_name,
             course_cost
         })
@@ -65,9 +72,12 @@ export async function addCart(req, res) {
 }
 
 export async function removeCart(req, res) {
-    const { title } = req.body
+    const { course_name } = req.body
     try {
-        const result = await db.collection("cart").deleteOne({ title })
+
+        const result = await db.collection("cart").deleteOne({ course_name })
+        if (result) return res.status(404).send("Not founded course")
+
         res.status(201).send("Removed from cart")
 
     } catch (err) {

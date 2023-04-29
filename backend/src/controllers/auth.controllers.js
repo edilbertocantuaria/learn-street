@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 import db from "../database/db.js";
-//teste de commit
 
 export async function postUser(req, res) {
     const { name, email, password } = req.body;
