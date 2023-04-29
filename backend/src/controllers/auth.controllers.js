@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 import db from "../database/db.js";
-//teste de commit
 
 export async function postUser(req, res) {
     const { name, email, password } = req.body;
@@ -28,10 +27,13 @@ export async function loginUser(req, res) {
     const { email, password } = req.body;
 
     try {
-        const user = await db.collection('users').findOne({ email: email.toLowerCase() });
+        const user = await db.collection('users').findOne({ email: email.toLowerCase().trim() });
         if (!user) return res.status(404).send("User not found");
 
-        const correctPassword = bcrypt.compareSync(password, user.password);
+        const alreadyLogedUser = await db.collection("sessions").findOne({ userId: user._id });
+        if (alreadyLogedUser) return res.status(401).send("Usuário já logado! Desconecte do antigo aparelho para poder realizar a operação")
+
+        const correctPassword = bcrypt.compareSync(password.trim(), user.password);
         if (!correctPassword) return res.status(401).send("Incorrect password!")
 
         if (user && correctPassword) {
