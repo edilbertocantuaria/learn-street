@@ -76,7 +76,6 @@ export async function removeCart(req, res) {
     try {
 
         const result = await db.collection("cart").deleteOne({ course_name })
-        if (result) return res.status(404).send("Not founded course")
 
         res.status(201).send("Removed from cart")
 
