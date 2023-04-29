@@ -14,7 +14,7 @@ export async function checkout(req, res) {
         });
 
         const checkout = {
-            userId: session.userId,
+            userId: session.userId, 
             name,
             card_number,
             card_valid_date,
@@ -27,6 +27,7 @@ export async function checkout(req, res) {
 
         /*const emptyCart = await db.collection("cart").deleteMany({ userId: session.userId });
         if (emptyCart.deletedCount === 0) return res.sendStatus(404);*/
+
 
         res.sendStatus(200);
         drainOutCart;
@@ -74,9 +75,7 @@ export async function addCart(req, res) {
 export async function removeCart(req, res) {
     const { course_name } = req.body
     try {
-
         const result = await db.collection("cart").deleteOne({ course_name })
-
         res.status(201).send("Removed from cart")
 
     } catch (err) {

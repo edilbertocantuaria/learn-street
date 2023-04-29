@@ -1,16 +1,24 @@
 import styled from "styled-components"
 import { useState } from "react"
 import AddCart from "./AddCart"
+import RemoveCart from "./RemoveCart"
 
 export default function CourseCard(props) {
     const [click, setClick] = useState(false)
+
+    function addCart(){
+
+    }
+    function removeCart(){
+
+    }
     return (
         <Course cor={props.cor} inCart={props.inCart} onClick={() => setClick(!click)}>
             {click ? <p>{props.descricao}</p> :
                 <>
                     <p>Malabarismo em 5 passos</p>
                     <BottomContainer>
-                        <AddCart />
+                        {props.inCart===false?<AddCart onClick={() => addCart()}/>:<RemoveCart onClick={() => removeCart()}/>}
                         <p>$100.00</p>
                     </BottomContainer>
                 </>
