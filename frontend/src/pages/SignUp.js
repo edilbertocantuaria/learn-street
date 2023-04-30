@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../assets/Logo.png"
 
-import useAppContext from '../hook/useAppContext'
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
@@ -78,7 +76,6 @@ export default function SignUp() {
 
         } else {
             alert("As senhas não correspondem!");
-
             setDisableInputs(false);
             setIsLoading(false);
             setRegistering("Cadastrar");

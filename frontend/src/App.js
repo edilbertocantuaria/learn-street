@@ -7,7 +7,6 @@ import SignUp from "./pages/SignUp"
 import CreateCoursePage from "./pages/CreateCoursePage.js"
 
 export default function App() {
-
   /* <Route path="/cadastro" element={} /> 
  <Route path="/novo-curso" element={} />
 <Route path="/carrinho" element={} />

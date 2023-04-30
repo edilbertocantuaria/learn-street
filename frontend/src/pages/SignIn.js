@@ -50,12 +50,14 @@ export default function SignIn() {
             password: password
         }
 
-        const request = axios.post(`${process.env.REACT_APP_API_URL}signin`, user)
+        const request = axios.post(`${process.env.REACT_APP_API_URL}/signin`, user)
         console.log(user);
 
         request.then(response => {
             console.log(response.data);
             setToken(response.data.token);
+            localStorage.setItem("token", response.data.token)
+            localStorage.setItem("userName", response.data.userName)
             setIsLoading(false);
             setDisableInputs(false);
 
