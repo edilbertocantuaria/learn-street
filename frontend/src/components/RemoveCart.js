@@ -1,8 +1,24 @@
+import axios from "axios"
 import styled from "styled-components"
 
-export default function RemoveCart() {
+export default function RemoveCart(props) {
+
+    function removeCart() {
+        // props.setClick(false)
+        // console.log("removed")
+        // console.log("interno",props.click)
+        axios.delete(`${process.env.REACT_APP_API_URL}/cart`,{course_name: props.title})
+            .then(res => {
+                alert("Item removido do carrinho")
+            })
+            .catch(err => {
+                alert(err.message)
+            })
+
+    }
+
     return (
-        <RemoveCartContainer>
+        <RemoveCartContainer onClick={() => removeCart()}>
             Remover do carrinho
         </RemoveCartContainer>
     )

@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AppContext } from './AppContext'
+import { useNavigate } from 'react-router';
 
 
 export default function AppProvider({ children }) {
@@ -10,6 +11,12 @@ export default function AppProvider({ children }) {
     const [disableInputs, setDisableInputs] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [totalValue, setTotalValue] = useState(0);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!token) navigate("/")
+    }, [navigate, token, userName])
 
     return (
         <AppContext.Provider

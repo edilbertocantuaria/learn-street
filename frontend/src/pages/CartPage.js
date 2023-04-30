@@ -5,7 +5,6 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import RedButton from "../components/RedButton.js";
 import GreenButton from "../components/GreenButton.js";
-import useQuickOut from "../hook/useQuickOut";
 import useAppContext from '../hook/useAppContext';
 
 
@@ -13,7 +12,6 @@ import { useNavigate } from "react-router-dom"
 
 export default function Home() {
     const navigate = useNavigate()
-    useQuickOut();
 
     const [value, setValue] = useState("");
     const [courses, setCourses] = useState([]);

@@ -1,8 +1,27 @@
+import axios from "axios"
 import styled from "styled-components"
 
-export default function AddCart() {
+export default function AddCart(props) {
+
+    function addCart(props) {
+        // console.log("added")
+        // props.setClick(false)
+        // console.log("interno",props.click)
+        axios.post(`${process.env.REACT_APP_API_URL}/cart`,
+            {
+                course_name: props.title,
+                course_cost: props.price
+            })
+            .then(res => {
+                alert("Item adicionado ao carrinho")
+            })
+            .catch(err => {
+                alert(err.message)
+            })
+    }
+
     return (
-        <AddCartContainer>
+        <AddCartContainer onClick={() => addCart()}>
             Adicionar ao carrinho
         </AddCartContainer>
     )

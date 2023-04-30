@@ -15,9 +15,10 @@ export default function App() {
  <Route path="/home" element={<Home />} />*/
 
   return (
-    <AppProvider>
-      <PagesContainer>
-        <BrowserRouter>
+
+    <PagesContainer>
+      <BrowserRouter>
+        <AppProvider>
           <Routes>
             <Route path="/" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
@@ -25,9 +26,9 @@ export default function App() {
             <Route path="/create-course" element={<CreateCoursePage />} />
             <Route path="/cart" element={<CartPage />} />
           </Routes>
-        </BrowserRouter>
-      </PagesContainer>
-    </AppProvider>
+        </AppProvider>
+      </BrowserRouter>
+    </PagesContainer>
   )
 }
 
