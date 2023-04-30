@@ -18,5 +18,5 @@ border-radius: 13px;
 font-size: 19px;
 color: white;
 box-shadow: 0px 4px 4px rgba(0,0,0,0.18);
-margin-left: 130px;
+margin-left: 9.5%;
 `

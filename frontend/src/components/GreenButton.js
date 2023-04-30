@@ -19,6 +19,6 @@ background-color: #92BD99;
 border-radius: 13px;
 font-size: 20px;
 color: white;
-margin-right: 35px;
+margin-right: 2.5%;
 box-shadow: 0px 4px 4px rgba(0,0,0,0.18);
 `
