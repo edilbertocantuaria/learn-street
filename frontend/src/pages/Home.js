@@ -4,10 +4,18 @@ import CourseCard from "../components/CourseCard";
 import FooterHome from "../components/FooterHome";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import useAppContext from "../hook/useAppContext";
 
 export default function Home() {
     const [courses, setCourses] = useState([])
     const [cart, setCart] = useState([])
+    const { token } = useAppContext();
+
+    const config = {
+        headers: {
+            authorization: `${token}`,
+        }
+    }
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/courses`)
@@ -18,14 +26,15 @@ export default function Home() {
                 alert(err.message)
             })
 
-        axios.get(`${process.env.REACT_APP_API_URL}/cart`)
+        axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
             .then(res => {
-                if(res.data.length!==0)
-                setCart(res.data)
+                    setCart(res.data)
             })
             .catch(err => {
                 alert(err.message)
+                console.log(err)
             })
+            console.log("cart",cart)
     }, [])
     return (
         <HomeContainer>

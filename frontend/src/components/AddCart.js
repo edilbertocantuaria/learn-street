@@ -1,9 +1,17 @@
 import axios from "axios"
 import styled from "styled-components"
+import useAppContext from "../hook/useAppContext";
 
 export default function AddCart(props) {
 
-    function addCart(props) {
+    const { token } = useAppContext();
+    const config = {
+        headers: {
+            authorization: `${token}`,
+        }
+    }
+
+    function addCart() {
         // console.log("added")
         // props.setClick(false)
         // console.log("interno",props.click)
@@ -11,7 +19,7 @@ export default function AddCart(props) {
             {
                 course_name: props.title,
                 course_cost: props.price
-            })
+            }, config)
             .then(res => {
                 alert("Item adicionado ao carrinho")
             })

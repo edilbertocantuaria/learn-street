@@ -1,13 +1,20 @@
 import axios from "axios"
 import styled from "styled-components"
+import useAppContext from "../hook/useAppContext";
 
 export default function RemoveCart(props) {
 
+    const { token } = useAppContext();
+    const config = {
+        headers: {
+            authorization: `${token}`,
+        }
+    }
     function removeCart() {
         // props.setClick(false)
         // console.log("removed")
         // console.log("interno",props.click)
-        axios.delete(`${process.env.REACT_APP_API_URL}/cart`,{course_name: props.title})
+        axios.delete(`${process.env.REACT_APP_API_URL}/cart`, { course_name: props.title }, config)
             .then(res => {
                 alert("Item removido do carrinho")
             })
