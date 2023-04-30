@@ -11,17 +11,19 @@ export default function Header() {
         token, setToken,
     } = useAppContext()
 
+    const config = {
+        headers: {
+            authorization: `${token}`,
+        }
+    }
+
     function logout() {
-        console.log(token);
-        const config = { headers: { Authorization: `Bearer ${token}` } }
-        const request = axios.post(`${process.env.REACT_APP_API_URL}/logout`, config)
+        const request = axios.delete(`${process.env.REACT_APP_API_URL}/logout`, config)
         console.log(config)
 
         request.then(() => {
-            //localStorage.clear();
-            //localStorage.removeItem("token")
+            localStorage.clear();
             setToken(undefined);
-            alert("Logout realizado com sucesso");
             navigate("/");
         })
 
