@@ -1,20 +1,42 @@
 import styled from "styled-components"
 import { IoLogOut } from "react-icons/io5"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
+import useAppContext from '../hook/useAppContext'
 
 export default function Header() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
+
+    const {
+        token, setToken,
+    } = useAppContext()
+
     function logout() {
-        localStorage.removeItem("usuario")
-        navigate("/")
-      }
+        console.log(token);
+        const config = { headers: { Authorization: `Bearer ${token}` } }
+        const request = axios.post(`${process.env.REACT_APP_API_URL}logout`, config)
+        console.log(config)
+
+        request.then(() => {
+            //localStorage.clear();
+            //localStorage.removeItem("token")
+            setToken(undefined);
+            alert("Logout realizado com sucesso");
+            navigate("/");
+        })
+
+        request.catch(err => {
+            console.log(err);
+            alert(err.response.data);
+        })
+    }
 
     return (
         <HeaderContainer>
-                <p>LEARN STREET</p>
-                <div>
-                    <IoLogOut onClick={()=>logout()}/>
-                </div>
+            <p>LEARN STREET</p>
+            <div>
+                <IoLogOut onClick={() => logout()} />
+            </div>
         </HeaderContainer>
     )
 }

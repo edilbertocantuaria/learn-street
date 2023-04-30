@@ -5,7 +5,7 @@ import logo from "../assets/Logo.png"
 import useAppContext from '../hook/useAppContext'
 
 import { useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 
 import { ThreeDots } from "react-loader-spinner";
@@ -18,8 +18,7 @@ export default function SignIn() {
     const [enter, setEnter] = useState("Entrar")
 
     const {
-        token, setToken,
-        idUser, setIdUser,
+        setToken,
         disableInputs, setDisableInputs,
         isLoading, setIsLoading,
     } = useAppContext()
@@ -51,11 +50,10 @@ export default function SignIn() {
             password: password
         }
 
-        const request = axios.post("https://learnstreet-api.onrender.com/signin", user)
+        const request = axios.post(`${process.env.REACT_APP_API_URL}signin`, user)
         console.log(user);
 
         request.then(response => {
-            alert("Login realizado com sucesso");
             console.log(response.data);
             setToken(response.data.token);
             setIsLoading(false);
@@ -64,9 +62,33 @@ export default function SignIn() {
             navigate("/home");
         })
 
-        request.catch(err => {
-            alert("Os dados informados estão incorretos ou o usuário não está cadastrado!");
-            console.log(err);
+        request.catch(error => {
+            console.log(error.response.status);
+            console.log(error)
+            let complementaryInfo;
+            switch (error.response.status) {
+                case 401:
+                    complementaryInfo = "a senha está incorreta!";
+                    break;
+
+                case 403:
+                    complementaryInfo = "usuário já se encontra logado em outro dispositivo";
+                    break;
+
+                case 404:
+                    complementaryInfo = "e-mail não cadastrado!";
+                    break;
+
+                case 422:
+                    complementaryInfo = `\n\nO formato do email está inválido!`
+                    break;
+
+                default:
+                    complementaryInfo = error.response.status;
+                    break;
+            }
+            alert(`Não foi possível realizar seu login: ${complementaryInfo}`)
+
             setDisableInputs(false);
             setIsLoading(false);
             setEnter("Entrar");
@@ -75,8 +97,6 @@ export default function SignIn() {
 
 
     }
-
-
 
     return (
         <MainDiv>
@@ -117,7 +137,7 @@ export default function SignIn() {
 
 
             </form>
-            <Link to="/cadastro" ><SingUpMessage >Não tem uma conta? Cadastre-se!</SingUpMessage></Link>
+            <Link to="/signup" ><SingUpMessage >Não tem uma conta? Cadastre-se!</SingUpMessage></Link>
 
         </MainDiv>
     )
@@ -137,7 +157,7 @@ font-weight: 400;
 font-size: 72px;
 
     img{
-    margin-top:60px;
+    margin-top:45px;
     margin-bottom:20px;
     }
 
@@ -192,6 +212,7 @@ const ButtonLogin = styled.button`
 
     &:hover {
         background: #5E8D64;
+    }
 `
 const SingUpMessage = styled.div`
 font-family: 'Karla';

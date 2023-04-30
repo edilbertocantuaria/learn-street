@@ -5,6 +5,7 @@ import { AppContext } from './AppContext'
 export default function AppProvider({ children }) {
     const [token, setToken] = useState("");
     const [idUser, setIdUser] = useState("");
+    const [username, setUsername] = useState("");
 
     const [disableInputs, setDisableInputs] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -13,6 +14,7 @@ export default function AppProvider({ children }) {
             value={{
                 token, setToken,
                 idUser, setIdUser,
+                username, setUsername,
 
                 disableInputs, setDisableInputs,
                 isLoading, setIsLoading
