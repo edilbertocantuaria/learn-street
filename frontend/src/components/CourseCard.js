@@ -6,10 +6,10 @@ import RemoveCart from "./RemoveCart"
 export default function CourseCard(props) {
     const [click, setClick] = useState(false)
 
-    function addCart(){
+    function addCart() {
 
     }
-    function removeCart(){
+    function removeCart() {
 
     }
     return (
@@ -18,7 +18,7 @@ export default function CourseCard(props) {
                 <>
                     <p>Malabarismo em 5 passos</p>
                     <BottomContainer>
-                        {props.inCart===false?<AddCart onClick={() => addCart()}/>:<RemoveCart onClick={() => removeCart()}/>}
+                        {props.inCart === false ? <AddCart onClick={() => addCart()} /> : <RemoveCart onClick={() => removeCart()} />}
                         <p>$100.00</p>
                     </BottomContainer>
                 </>
@@ -30,7 +30,7 @@ export default function CourseCard(props) {
 const Course = styled.div`
 border: solid;
 border-color:#04ff00;
-border-width: ${(props)=>props.inCart===true?"3px":"0px"};
+border-width: ${(props) => props.inCart === true ? "3px" : "0px"};
 display: flex;
 flex-direction: column;
 justify-content: space-between;

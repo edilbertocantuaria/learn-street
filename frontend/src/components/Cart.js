@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 export default function Cart() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     return (
-        <AddCurso onClick={()=>navigate("/carrinho")}>
-            <IoCartSharp/>
+        <AddCurso onClick={() => navigate("/cart")}>
+            <IoCartSharp />
         </AddCurso>
     )
 }
 
-const AddCurso= styled.button`
+const AddCurso = styled.button`
 width: 73px;
 height: 73px;
 background-color: #92bd99;

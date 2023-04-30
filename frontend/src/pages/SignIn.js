@@ -51,7 +51,6 @@ export default function SignIn() {
         }
 
         const request = axios.post(`${process.env.REACT_APP_API_URL}/signin`, user)
-        console.log(user);
 
         request.then(response => {
 

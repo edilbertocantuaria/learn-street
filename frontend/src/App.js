@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Home from "./pages/Home"
 import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
+import CartPage from "./pages/CartPage"
 import CreateCoursePage from "./pages/CreateCoursePage.js"
 
 export default function App() {
@@ -22,7 +23,7 @@ export default function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/home" element={<Home />} />
             <Route path="/create-course" element={<CreateCoursePage />} />
-
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
         </BrowserRouter>
       </PagesContainer>

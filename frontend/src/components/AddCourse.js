@@ -2,15 +2,15 @@ import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 export default function AddCourse() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     return (
-        <AddCurso onClick={()=>navigate("/novo-curso")}>
+        <AddCurso onClick={() => navigate("/novo-curso")}>
             Adicionar Curso
         </AddCurso>
     )
 }
 
-const AddCurso= styled.button`
+const AddCurso = styled.button`
 width: 140px;
 height: 60px;
 background-color: #92bd99;

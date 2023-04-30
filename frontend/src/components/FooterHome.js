@@ -5,8 +5,8 @@ import Cart from "./Cart"
 export default function FooterHome() {
     return (
         <FooterContainer>
-                <AddCourse/>
-                <Cart/>
+            <AddCourse />
+            <Cart />
         </FooterContainer>
     )
 }
@@ -23,5 +23,5 @@ z-index: 1;
 display: flex;
 justify-content: center;
 align-items: center;
-gap: 80px;
+justify-content: space-around;
 `

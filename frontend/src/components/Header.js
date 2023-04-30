@@ -14,7 +14,7 @@ export default function Header() {
     function logout() {
         console.log(token);
         const config = { headers: { Authorization: `Bearer ${token}` } }
-        const request = axios.post(`${process.env.REACT_APP_API_URL}logout`, config)
+        const request = axios.post(`${process.env.REACT_APP_API_URL}/logout`, config)
         console.log(config)
 
         request.then(() => {

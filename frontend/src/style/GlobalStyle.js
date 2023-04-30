@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
     button{
         font-family: 'Koulen', cursive;
         border: none;
+
+        &:focus{
+            outline: none;
+        }
     }
 `
 

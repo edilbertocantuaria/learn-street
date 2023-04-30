@@ -9,12 +9,15 @@ export default function AppProvider({ children }) {
 
     const [disableInputs, setDisableInputs] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [totalValue, setTotalValue] = useState(0);
+
     return (
         <AppContext.Provider
             value={{
                 token, setToken,
                 idUser, setIdUser,
                 userName, setUserName,
+                totalValue, setTotalValue,
 
                 disableInputs, setDisableInputs,
                 isLoading, setIsLoading
