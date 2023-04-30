@@ -2,27 +2,24 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import CourseCard from "../components/CourseCard";
 import FooterHome from "../components/FooterHome";
-import { useEffect } from "react";
+
+import useQuickOut from "../hook/useQuickOut";
 
 export default function Home() {
-    useEffect(()=>{
-        
-    },[])
-
-    
+    useQuickOut();
 
     return (
         <HomeContainer>
             <Header />
             <CoursesContainer>
-                <CourseCard cor={"#cfb46f"} descricao={"é isso"} inCart={true}/>
-                <CourseCard cor={"#2eb73c"} descricao={"é isso"} inCart={false}/>
-                <CourseCard cor={"#cf6f9d"} descricao={"é isso"} inCart={true}/>
-                <CourseCard cor={"#706fcf"} descricao={"é isso"} inCart={false}/>
-                <CourseCard cor={"#cfb46f"} descricao={"é isso"} inCart={false}/>
+                <CourseCard cor={"#cfb46f"} descricao={"é isso"} inCart={true} />
+                <CourseCard cor={"#2eb73c"} descricao={"é isso"} inCart={false} />
+                <CourseCard cor={"#cf6f9d"} descricao={"é isso"} inCart={true} />
+                <CourseCard cor={"#706fcf"} descricao={"é isso"} inCart={false} />
+                <CourseCard cor={"#cfb46f"} descricao={"é isso"} inCart={false} />
 
             </CoursesContainer>
-            <FooterHome/>
+            <FooterHome />
         </HomeContainer>
 
     )
