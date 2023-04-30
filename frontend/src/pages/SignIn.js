@@ -188,7 +188,7 @@ font-size: 72px;
             outline: none;
         }
     }
-}
+
 `
 
 const ButtonLogin = styled.button`
