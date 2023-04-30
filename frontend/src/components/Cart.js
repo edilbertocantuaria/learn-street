@@ -22,4 +22,5 @@ font-size: 36px;
 display: flex;
 justify-content: center;
 align-items: center;
+margin-right: 150px;
 `

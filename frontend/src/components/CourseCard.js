@@ -36,7 +36,7 @@ flex-direction: column;
 justify-content: space-between;
 background-color: ${(props) => props.cor};
 height: 100px;
-width: 345px;
+width: 80%;
 padding: 12px;
 border-radius: 13px;
 p{
