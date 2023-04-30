@@ -31,7 +31,7 @@ export async function loginUser(req, res) {
         if (!user) return res.status(404).send("User not found");
 
         const alreadyLogedUser = await db.collection("sessions").findOne({ userId: user._id });
-        if (alreadyLogedUser) return res.status(401).send("Usuário já logado! Desconecte do antigo aparelho para poder realizar a operação")
+        if (alreadyLogedUser) return res.status(403).send("Usuário já logado! Desconecte do antigo aparelho para poder realizar a operação")
 
         const correctPassword = bcrypt.compareSync(password.trim(), user.password);
         if (!correctPassword) return res.status(401).send("Incorrect password!")
