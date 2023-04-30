@@ -9,7 +9,7 @@ const authRouter = Router();
 
 authRouter.post("/singup", validateSchema(postUserSchema), postUser);
 
-authRouter.post("/singin", validateSchema(loginSchema), loginUser);
+authRouter.post("/signin", validateSchema(loginSchema), loginUser);
 
 authRouter.get("/logout", authValidation, logoutUser);
 
