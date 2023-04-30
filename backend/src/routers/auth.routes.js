@@ -11,7 +11,7 @@ authRouter.post("/singup", validateSchema(postUserSchema), postUser);
 
 authRouter.post("/signin", validateSchema(loginSchema), loginUser);
 
-authRouter.get("/logout", authValidation, logoutUser);
+authRouter.post("/logout", authValidation, logoutUser);
 
 export default authRouter
 
