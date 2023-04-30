@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import db from "../database/db.js";
 
 export async function postUser(req, res) {
-    const { name, email, password } = req.body;
+    const { name, email, password, passwordConfirm } = req.body;
 
     try {
         const userAlreadyRegistered = await db.collection('users').findOne({ email: email });
