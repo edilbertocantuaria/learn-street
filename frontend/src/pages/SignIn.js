@@ -55,8 +55,6 @@ export default function SignIn() {
         console.log(user);
 
         request.then(response => {
-            alert("Login realizado com sucesso");
-            console.log(response.data);
             setToken(response.data.token);
             setIsLoading(false);
             setDisableInputs(false);
