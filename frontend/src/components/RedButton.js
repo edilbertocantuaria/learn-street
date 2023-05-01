@@ -7,9 +7,6 @@ export default function RedButton({ name }) {
     )
 }
 
-
-
-
 const Button = styled.button`
 width: 160px;
 height: 47px;

@@ -7,8 +7,6 @@ export default function GreenButton({ name }) {
     )
 }
 
-
-
 const Button = styled.button`
 width: 160px;
 height: 47px;
