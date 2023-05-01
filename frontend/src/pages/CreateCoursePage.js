@@ -139,7 +139,7 @@ justify-content: space-between;
 
 const InputContainer = styled.div`
 height:calc(100vh - 100px);
-padding-top: 100px;
+padding-top: 110px;
 padding-left: 13px;
 padding-right: 17px;
 display: flex;
@@ -148,6 +148,9 @@ align-items: center;
 justify-content: space-between;
 gap: 16px;
 overflow-y: scroll;
+::-webkit-scrollbar{
+    width:0.5em;
+}
 `
 
 const InputSection = styled.div`
@@ -177,6 +180,9 @@ const Input = styled.textarea`
     border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.18);
     font-size: 20px;
+    &:focus{
+        outline:none;
+        }
 `;
 
 const ThemeField = styled.h1`

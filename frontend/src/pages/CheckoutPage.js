@@ -140,7 +140,7 @@ justify-content: space-between;
 
 const InputContainer = styled.div`
 height:calc(100vh - 105px);
-padding-top: 106px;
+padding-top: 110px;
 padding-left: 13px;
 padding-right: 17px;
 display: flex;
@@ -149,6 +149,9 @@ align-items: center;
 justify-content: space-between;
 gap: 16px;
 overflow-y: scroll;
+::-webkit-scrollbar{
+    width:0.5em;
+}
 `
 
 const InputSection = styled.div`
@@ -184,6 +187,9 @@ const Input = styled.input`
     border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.18);
     font-size: 20px;
+    &:focus{
+        outline:none;
+        }
 `;
 
 const SmallInput = styled.input`
@@ -197,6 +203,9 @@ const SmallInput = styled.input`
     border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.18);
     font-size: 20px;
+    &:focus{
+        outline:none;
+        }
 `;
 
 const CancelButton = styled.button`
