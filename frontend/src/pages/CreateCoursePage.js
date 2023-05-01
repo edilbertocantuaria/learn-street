@@ -99,7 +99,7 @@ export default function CreateCoursePage() {
                     </InputSection>
                 </InputContainer>
                 <Footer>
-                    <RedButton name="Cancelar" onClick={() => console.log("/home")}></RedButton>
+                    <CancelButton name="Cancelar" onClick={() => console.log("/home")}></CancelButton>
                     <GreenButton name="Anuncie seu curso" type="submit"></GreenButton>
                 </Footer>
             </FormContainer>
