@@ -19,7 +19,7 @@ export default function CourseCard(props) {
                     <BottomContainer>
                         {props.inCart === false ? 
                         <AddCart atualiza={props.atualiza} setAtualiza={props.setAtualiza} click={click} setClick={setClick} price={props.price} title={props.title}/> : 
-                        <RemoveCart atualiza={props.atualiza} setAtualiza={props.setAtualiza} click={click} setClick={setClick} title={props.title}/>}
+                        <RemoveCart id={props.id} atualiza={props.atualiza} setAtualiza={props.setAtualiza} click={click} setClick={setClick} title={props.title}/>}
                         <span>${props.price}</span>
                     </BottomContainer>
                 </>

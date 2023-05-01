@@ -62,7 +62,7 @@ export async function addCart(req, res) {
         const carrinho = await db.collection("cart").insertOne({
             userId: session.userId,
             course_name,
-            course_cost: (course_cost).replace(",", ".")
+            course_cost: Number(course_cost.toFixed(2).replace(",", "."))
         })
 
         res.status(201).send("Added to cart")
@@ -73,9 +73,9 @@ export async function addCart(req, res) {
 }
 
 export async function removeCart(req, res) {
-    const { course_name } = req.body
+    const { id } = req.parms
     try {
-        const result = await db.collection("cart").deleteOne({ course_name })
+        const result = await db.collection("cart").deleteOne({ _id:new ObjectId(id) })
         res.status(201).send("Removed from cart")
 
     } catch (err) {
