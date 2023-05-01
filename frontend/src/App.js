@@ -6,6 +6,7 @@ import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
 import CartPage from "./pages/CartPage"
 import CreateCoursePage from "./pages/CreateCoursePage.js"
+import CheckoutPage from "./pages/CheckoutPage.js"
 
 export default function App() {
   /* <Route path="/cadastro" element={} /> 
@@ -25,6 +26,7 @@ export default function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/create-course" element={<CreateCoursePage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
         </AppProvider>
       </BrowserRouter>
