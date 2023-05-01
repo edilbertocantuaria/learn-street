@@ -43,9 +43,9 @@ export default function Home() {
     return (
         <HomeContainer>
             <Header />
-            <CoursesContainer>{courses ? courses.map(c =>
+            <CoursesContainer>{courses.length!==0 ? courses.map(c =>
                 <CourseCard atualiza={atualiza} setAtualiza={setAtualiza} cor={c.theme} descricao={c.description} inCart={cart.filter((i)=>i.course_name===c.title).length!==0} title={c.title} price={(c.price).toFixed(2)} />
-            ) : <SpanTxt>Aina não foram adicionados cursos ao servidor</SpanTxt>}   
+            ) : <SpanTxt>Ainda não foram adicionados cursos ao servidor</SpanTxt>}   
             </CoursesContainer>
             <FooterHome />
         </HomeContainer>
@@ -77,5 +77,6 @@ display: flex;
 align-items: center;
 justify-content: center;
 color: white;
-font-size: 30px;
+font-size: 22px;
+width: 90%;
 `
