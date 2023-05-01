@@ -43,7 +43,7 @@ export default function Home() {
             } else {
                 finalValue += Number(course.course_cost);
             }
-            console.log(typeof (finalValue))
+            //console.log(typeof (finalValue))
         });
         setTotalValue(finalValue);
     }, [courses]);
