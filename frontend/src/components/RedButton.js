@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function RedButton({ name }) {
+    const navigate = useNavigate();
 
     return (
-        <Button>{name}</Button>
+        <Button onClick={() => navigate("/home")}>{name}</Button>
     )
 }
 
