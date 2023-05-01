@@ -80,7 +80,6 @@ export async function removeCart(req, res) {
     const { course_name } = req.body
     try {
         
-
         const result = await db.collection("cart").deleteOne({ course_name })
         res.status(201).send("Removed from cart")
 
