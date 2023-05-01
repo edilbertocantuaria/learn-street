@@ -23,16 +23,16 @@ export default function CreateCoursePage() {
         setTheme(color);
     }
 
+    function handlePrice(p){
+        const price = p.replace(",", ".");
+        return parseFloat(price);
+      }
+
     const config = {
         headers: {
             authorization: `${token}`,
         }
     }
-
-    function handlePrice(p){
-        const price = p.replace(",", ".");
-        return parseFloat(price);
-      }
 
     function handleCreateCourse(e) {
         e.preventDefault();
@@ -101,7 +101,7 @@ export default function CreateCoursePage() {
                     </ThemeSection>
                 </InputSection>
                 <Footer>
-                    <RedButton name="Cancelar" onClick={() => navigate("/home")}></RedButton>
+                    <RedButton name="Cancelar" type ="button" onClick={() => navigate("/home")}></RedButton>
                     <GreenButton name="Anuncie seu curso" type="submit"></GreenButton>
                 </Footer>
             </FormContainer>
@@ -198,4 +198,3 @@ const ThemeButton = styled.button`
     border:${({selected}) => (selected === true ? "3px solid #04ff00" : "")}
 
 `
-//   border-width: ${(props) => props.inCart === true ? "3px" : "0px"};
