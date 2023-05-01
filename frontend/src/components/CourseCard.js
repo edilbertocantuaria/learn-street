@@ -7,7 +7,7 @@ export default function CourseCard(props) {
     const [click, setClick] = useState(false)
 
     useEffect(() => {
-        console.log("click home", click)
+        //console.log("click home", click)
         
     }, [click])
 
