@@ -79,6 +79,6 @@ export async function removeCart(req, res) {
         res.status(201).send("Removed from cart")
 
     } catch (err) {
-        res.status(500).send(err.message)
+        res.status(500).send("mensagem do removeCart aqui!")
     }
 }
