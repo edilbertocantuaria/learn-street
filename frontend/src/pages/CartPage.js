@@ -33,7 +33,7 @@ export default function Home() {
             setCourses(coursesAddedAtCart);
             setLoading(false);
         });
-
+        console.log(courses)
     }, []);
 
     useEffect(() => {
@@ -41,7 +41,12 @@ export default function Home() {
         console.log(courses.length);
         let finalValue = 0;
         courses.forEach((course) => {
-            finalValue += Number(course.course_cost)
+            if (typeof course.course_cost === "number") {
+                finalValue += course.course_cost;
+            } else {
+                finalValue += Number(course.course_cost);
+            }
+            console.log(typeof (finalValue))
         });
         setTotalValue(finalValue);
     }, [courses]);
@@ -67,7 +72,8 @@ export default function Home() {
                                             <div className="coursesInfo">
                                                 <div className="courseName">{course.course_name}
                                                 </div>
-                                                <div className="coursePrice">{course.course_cost}</div>
+                                                <div className="coursePrice">{
+                                                    Number((course.course_cost)).toFixed(2).replace(".", ",")}</div>
                                             </div>
                                             <div className="divisionLine">
                                                 <div className="line"></div>
@@ -83,7 +89,7 @@ export default function Home() {
 
                     <div className="totalBuying">
                         <div className="total">Total</div>
-                        <div className="price">R$ {totalValue}</div>
+                        <div className="price">R$ {(totalValue).toFixed(2).replace(".", ",")} </div>
                     </div>
                 </div>
             </Main>
