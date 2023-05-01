@@ -11,11 +11,10 @@ export default function RemoveCart(props) {
         }
     }
     function removeCart() {
-        // props.setClick(false)
-        // console.log("removed")
-        // console.log("interno",props.click)
-
-        axios.delete(`${process.env.REACT_APP_API_URL}/cart`,{course_name: props.title},config)
+        console.log("nome do curso",props.title)
+        axios.post(`${process.env.REACT_APP_API_URL}/remover`,{
+            course_name:props.title
+        },config)
             .then(res => {
                 alert("Item removido do carrinho")
                 props.setAtualiza(!props.atualiza)
@@ -44,6 +43,4 @@ border-radius: 11px;
 font-size: 16px;
 color: white;
 box-shadow: 0px 4px 4px rgba(0,0,0,0.12);
-z-index: 1;
-
 `

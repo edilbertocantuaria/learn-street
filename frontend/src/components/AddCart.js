@@ -12,9 +12,6 @@ export default function AddCart(props) {
     }
 
     function addCart() {
-        // console.log("added")
-        // props.setClick(false)
-        // console.log("interno",props.click)
         axios.post(`${process.env.REACT_APP_API_URL}/cart`,
             {
                 course_name: props.title,
@@ -26,7 +23,7 @@ export default function AddCart(props) {
 
             })
             .catch(err => {
-                alert(err.message)
+                console.log(err)
             })
     }
 
@@ -48,5 +45,4 @@ border-radius: 11px;
 font-size: 16px;
 color: white;
 box-shadow: 0px 4px 4px rgba(0,0,0,0.12);
-z-index: 1;
 `

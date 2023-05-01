@@ -44,8 +44,8 @@ export default function Home() {
         <HomeContainer>
             <Header />
             <CoursesContainer>{courses ? courses.map(c =>
-                <CourseCard atualiza={atualiza} setAtualiza={setAtualiza} cor={c.theme} descricao={c.description} inCart={cart.filter((i) => i.course_name === c.title).length !== 0} title={c.title} price={(c.price.toFixed(2).replace(".", ","))} />
-                ) : <SpanTxt>Aina não foram adicionados cursos ao servidor</SpanTxt>}
+                <CourseCard atualiza={atualiza} setAtualiza={setAtualiza} cor={c.theme} descricao={c.description} inCart={cart.filter((i)=>i.course_name===c.title).length!==0} title={c.title} price={(c.price).toFixed(2)} />
+            ) : <SpanTxt>Aina não foram adicionados cursos ao servidor</SpanTxt>}   
             </CoursesContainer>
             <FooterHome />
         </HomeContainer>
