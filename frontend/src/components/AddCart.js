@@ -23,7 +23,7 @@ export default function AddCart(props) {
 
             })
             .catch(err => {
-                alert(err.message)
+                console.log(err)
             })
     }
 
