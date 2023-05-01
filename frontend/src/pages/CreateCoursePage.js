@@ -101,7 +101,7 @@ export default function CreateCoursePage() {
                     </ThemeSection>
                 </InputSection>
                 <Footer>
-                    <RedButton name="Cancelar" type ="button" onClick={() => navigate("/home")}></RedButton>
+                    <RedButton name="Cancelar" onClick={() => console.log("/home")}></RedButton>
                     <GreenButton name="Anuncie seu curso" type="submit"></GreenButton>
                 </Footer>
             </FormContainer>
