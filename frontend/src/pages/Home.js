@@ -78,5 +78,6 @@ align-items: center;
 justify-content: center;
 color: white;
 font-size: 22px;
-width: 90%;
+width: 100%;
+padding: 10px;
 `
