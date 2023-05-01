@@ -12,7 +12,9 @@ export default function RemoveCart(props) {
     }
     function removeCart() {
         console.log("nome do curso",props.title)
-        axios.delete(`${process.env.REACT_APP_API_URL}/cart/${props.id}`,config)
+        axios.post(`${process.env.REACT_APP_API_URL}/remover`,{
+            course_name:props.title
+        },config)
             .then(res => {
                 alert("Item removido do carrinho")
                 props.setAtualiza(!props.atualiza)

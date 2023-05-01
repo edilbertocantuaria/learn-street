@@ -73,9 +73,9 @@ export async function addCart(req, res) {
 }
 
 export async function removeCart(req, res) {
-    const { id } = req.parms
+    const { course_name } = req.body
     try {
-        const result = await db.collection("cart").deleteOne({ _id:new ObjectId(id) })
+        const result = await db.collection("cart").deleteOne({ course_name })
         res.status(201).send("Removed from cart")
 
     } catch (err) {
