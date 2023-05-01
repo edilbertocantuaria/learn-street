@@ -62,7 +62,7 @@ export async function addCart(req, res) {
         const carrinho = await db.collection("cart").insertOne({
             userId: session.userId,
             course_name,
-            course_cost: Number(course_cost.toFixed(2))
+            course_cost: (course_cost).replace(",", ".")
         })
 
         res.status(201).send("Added to cart")
