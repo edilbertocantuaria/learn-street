@@ -57,6 +57,12 @@ export async function addCart(req, res) {
     const { course_name, course_cost } = req.body
     try {
         const session = res.locals.session
+
+        const result= await db.collection("cart").findOne({
+            userId: session.userId,
+            course_name,})
+            if(result) return res.send("Item já está no carrinho")
+
         const carrinho = await db.collection("cart").insertOne({
             userId: session.userId,
             course_name,
@@ -73,6 +79,8 @@ export async function addCart(req, res) {
 export async function removeCart(req, res) {
     const { course_name } = req.body
     try {
+        
+
         const result = await db.collection("cart").deleteOne({ course_name })
         res.status(201).send("Removed from cart")
 

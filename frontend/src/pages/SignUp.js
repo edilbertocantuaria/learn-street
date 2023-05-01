@@ -185,7 +185,6 @@ font-size: 72px;
             outline: none;
         }
     }
-}
 `
 
 const SingUpButton = styled.button`

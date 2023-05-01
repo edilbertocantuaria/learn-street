@@ -10,6 +10,6 @@ purchaseRouter.use(authValidation)
 purchaseRouter.post("/checkout", validateSchema(checkoutSchema), checkout);
 purchaseRouter.get("/cart", getCart);
 purchaseRouter.post("/cart", addCart);
-purchaseRouter.post("/remover", removeCart);
+purchaseRouter.put("/cart", removeCart);
 
 export default purchaseRouter;

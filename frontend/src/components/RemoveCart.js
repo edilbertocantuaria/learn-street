@@ -12,7 +12,7 @@ export default function RemoveCart(props) {
     }
     function removeCart() {
         console.log("nome do curso",props.title)
-        axios.post(`${process.env.REACT_APP_API_URL}/remover`,{
+        axios.put(`${process.env.REACT_APP_API_URL}/cart`,{
             course_name:props.title
         },config)
             .then(res => {

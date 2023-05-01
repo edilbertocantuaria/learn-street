@@ -11,11 +11,12 @@ export default function AppProvider({ children }) {
     const [disableInputs, setDisableInputs] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [totalValue, setTotalValue] = useState(0);
-
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!token) navigate("/")
+            const lsUser=(token?localStorage.getItem("token"):{})
+
+        if (lsUser===null) navigate("/")
     }, [navigate, token, userName])
 
     return (
