@@ -44,7 +44,7 @@ export default function Home() {
             if (typeof course.course_cost === "number") {
                 finalValue += course.course_cost;
             } else {
-               finalValue += Number(course.course_cost);
+                finalValue += Number(course.course_cost);
             }
             console.log(typeof (finalValue))
         });
@@ -73,7 +73,7 @@ export default function Home() {
                                                 <div className="courseName">{course.course_name}
                                                 </div>
                                                 <div className="coursePrice">{
-                                                Number((course.course_cost)).toFixed(2).replace(".", ",")}</div>
+                                                    Number((course.course_cost)).toFixed(2).replace(".", ",")}</div>
                                             </div>
                                             <div className="divisionLine">
                                                 <div className="line"></div>
