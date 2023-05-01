@@ -22,6 +22,8 @@ export default function AddCart(props) {
             }, config)
             .then(res => {
                 alert("Item adicionado ao carrinho")
+                props.setAtualiza(!props.atualiza)
+
             })
             .catch(err => {
                 alert(err.message)

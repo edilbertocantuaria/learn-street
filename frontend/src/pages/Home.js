@@ -10,6 +10,7 @@ export default function Home() {
     const [courses, setCourses] = useState([])
     const [cart, setCart] = useState([])
     const { token } = useAppContext();
+    const [atualiza,setAtualiza]=useState(false)
 
     const config = {
         headers: {
@@ -21,26 +22,29 @@ export default function Home() {
         axios.get(`${process.env.REACT_APP_API_URL}/courses`)
             .then(res => {
                 setCourses(res.data)
-            })
-            .catch(err => {
-                alert(err.message)
-            })
+                console.log("courses", res.data)
 
-        axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
-            .then(res => {
-                    setCart(res.data)
             })
             .catch(err => {
                 alert(err.message)
-                console.log(err)
             })
-            console.log("cart",cart)
     }, [])
+
+    useEffect(()=>{
+        axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
+        .then(res => {
+            setCart(res.data)
+            console.log("cart", res.data)
+        })
+        .catch(err => {
+            alert(err.message)
+        })
+    },[atualiza])
     return (
         <HomeContainer>
             <Header />
             <CoursesContainer>{courses ? courses.map(c =>
-                <CourseCard cor={c.theme} descricao={c.description} inCart={cart.includes(c)} title={c.title} price={(c.price).toFixed(2)} />
+                <CourseCard atualiza={atualiza} setAtualiza={setAtualiza} cor={c.theme} descricao={c.description} inCart={cart.filter((i)=>i.course_name===c.title).length!==0} title={c.title} price={(c.price).toFixed(2)} />
             ) : <SpanTxt>Aina não foram adicionados cursos ao servidor</SpanTxt>}
             </CoursesContainer>
             <FooterHome />

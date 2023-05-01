@@ -8,6 +8,7 @@ export default function CourseCard(props) {
 
     useEffect(() => {
         console.log("click home", click)
+        
     }, [click])
 
     return (
@@ -17,8 +18,8 @@ export default function CourseCard(props) {
                     <p onClick={() => setClick(!click)}>{props.title}</p>
                     <BottomContainer>
                         {props.inCart === false ? 
-                        <AddCart click={click} setClick={setClick} price={props.price} title={props.title}/> : 
-                        <RemoveCart click={click} setClick={setClick} title={props.title}/>}
+                        <AddCart atualiza={props.atualiza} setAtualiza={props.setAtualiza} click={click} setClick={setClick} price={props.price} title={props.title}/> : 
+                        <RemoveCart atualiza={props.atualiza} setAtualiza={props.setAtualiza} click={click} setClick={setClick} title={props.title}/>}
                         <span>${props.price}</span>
                     </BottomContainer>
                 </>

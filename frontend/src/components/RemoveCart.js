@@ -14,9 +14,11 @@ export default function RemoveCart(props) {
         // props.setClick(false)
         // console.log("removed")
         // console.log("interno",props.click)
-        axios.delete(`${process.env.REACT_APP_API_URL}/cart`, { course_name: props.title }, config)
+
+        axios.delete(`${process.env.REACT_APP_API_URL}/cart`,{course_name: props.title},config)
             .then(res => {
                 alert("Item removido do carrinho")
+                props.setAtualiza(!props.atualiza)
             })
             .catch(err => {
                 alert(err.message)
