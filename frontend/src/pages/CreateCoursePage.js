@@ -38,7 +38,7 @@ export default function CreateCoursePage() {
         const formToApi = { ...form, price: handlePrice(form.price), theme };
         console.log(formToApi);
 
-        axios.post(`${process.env.REACT_APP_API_URL}/courses`, formToApi, config)
+        axios.post(`https://learnstreet-api.onrender.com/courses`, formToApi, config)
             .then(res => {
                 alert("Curso adicionado com sucesso!");
                 navigate("/home");

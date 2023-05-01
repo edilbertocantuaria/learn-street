@@ -12,7 +12,7 @@ export default function RemoveCart(props) {
     }
     function removeCart() {
         //console.log("nome do curso",props.title)
-        axios.put(`${process.env.REACT_APP_API_URL}/cart`, {
+        axios.put(`https://learnstreet-api.onrender.com/cart`, {
             course_name: props.title
         }, config)
             .then(res => {
