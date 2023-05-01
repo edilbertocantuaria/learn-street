@@ -4,7 +4,7 @@ import styled from "styled-components"
 export default function AddCourse() {
     const navigate = useNavigate()
     return (
-        <AddCurso onClick={() => navigate("/novo-curso")}>
+        <AddCurso onClick={() => navigate("/create-course")}>
             Adicionar Curso
         </AddCurso>
     )

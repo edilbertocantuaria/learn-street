@@ -90,8 +90,8 @@ export default function Home() {
 
 
             <Footer>
-                <RedButton name="Cancelar" ></RedButton>
-                <GreenButton name="Pagamento" ></GreenButton>
+                <RedButton name="Cancelar" onClick={() => navigate("/home")}></RedButton>
+                <GreenButton name="Pagamento" onClick={() => navigate("/checkout")}></GreenButton>
             </Footer>
         </HomeContainer>
     )
