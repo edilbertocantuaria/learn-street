@@ -25,24 +25,22 @@ export async function checkout(req, res) {
 
         await db.collection("checkout").insertOne(checkout);
 
-        /*const emptyCart = await db.collection("cart").deleteMany({ userId: session.userId });
-        if (emptyCart.deletedCount === 0) return res.sendStatus(404);*/
-
+        const emptyCart = await db.collection("cart").deleteMany({ userId: session.userId });
+        if (emptyCart.deletedCount === 0) return res.sendStatus(404);
 
         res.sendStatus(200);
-        drainOutCart;
 
     } catch (err) {
         res.status(500).send(err.message)
     }
 }
 
-function drainOutCart() {
+// function drainOutCart() {
 
-    const session = res.locals.session;
-    const emptyCart = db.collection("cart").deleteMany({ userId: session.userId });
-    if (emptyCart.deletedCount === 0) return res.sendStatus(404);
-}
+//     const session = res.locals.session;
+//     const emptyCart = db.collection("cart").deleteMany({ userId: session.userId });
+//     if (emptyCart.deletedCount === 0) return res.sendStatus(404);
+// }
 
 export async function getCart(req, res) {
     const { userId } = res.locals.session;
