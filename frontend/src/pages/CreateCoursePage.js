@@ -99,8 +99,8 @@ export default function CreateCoursePage() {
                     </InputSection>
                 </InputContainer>
                 <Footer>
-                    <CancelButton name="Cancelar" onClick={() => console.log("/home")}></CancelButton>
-                    <GreenButton name="Anuncie seu curso" type="submit"></GreenButton>
+                    <CancelButton type="button" onClick={() => navigate("/home")}>Cancelar</CancelButton>
+                    <GreenButton type="submit">Anuncie seu curso</GreenButton>
                 </Footer>
             </FormContainer>
         </CreateCourseContainer>

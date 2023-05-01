@@ -35,7 +35,7 @@ border-width: ${(props) => props.inCart === true ? "3px" : "0px"};
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-background-color: ${(props) => props.cor};
+background-color: ${(props) => (props.cor === "blue" ? "#706FCF" : (props.cor === "red" ? "#CF6F9D" : (props.cor === "yellow" ? "#CFB46F" : "#2EB73C")))};
 height: 100px;
 width: 80%;
 padding: 12px;
