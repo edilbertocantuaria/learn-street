@@ -1,12 +1,9 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom"
-
 
 export default function GreenButton({ name }) {
-    const navigate = useNavigate()
 
     return (
-        <Button onClick={() => navigate("/checkout")}>{name}</Button>
+        <Button>{name}</Button>
     )
 }
 
