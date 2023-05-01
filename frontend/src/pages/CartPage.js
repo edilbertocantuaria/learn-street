@@ -24,18 +24,18 @@ export default function Home() {
     }
 
     useEffect(() => {
-        const request = axios.get(`https://learnstreet-api.onrender.com/cart`, config)
+        const request = axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
         request.then(response => {
             const coursesAddedAtCart = response.data;
             setCourses(coursesAddedAtCart);
             setLoading(false);
         });
-        console.log(courses)
+        //console.log(courses)
     }, []);
 
     useEffect(() => {
-        console.log(courses);
-        console.log(courses.length);
+        //console.log(courses);
+        //console.log(courses.length);
         let finalValue = 0;
         courses.forEach((course) => {
             if (typeof course.course_cost === "number") {

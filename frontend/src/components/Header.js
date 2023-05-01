@@ -18,7 +18,7 @@ export default function Header() {
     }
 
     function logout() {
-        const request = axios.delete(`https://learnstreet-api.onrender.com/logout`, config)
+        const request = axios.delete(`${process.env.REACT_APP_API_URL}/logout`, config)
         //console.log(config)
 
         request.then(() => {
