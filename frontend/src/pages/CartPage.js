@@ -2,10 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components";
-
 import Header from "../components/Header";
-import RedButton from "../components/RedButton.js";
-import GreenButton from "../components/GreenButton.js";
 import useAppContext from '../hook/useAppContext';
 
 import { InfinitySpin } from "react-loader-spinner";
@@ -89,15 +86,15 @@ export default function Home() {
 
                     <div className="totalBuying">
                         <div className="total">Total</div>
-                        <div className="price">R$ {(totalValue).toFixed(2).replace(".", ",")} </div>
+                        <div className="price">$ {(totalValue).toFixed(2).replace(".", ",")} </div>
                     </div>
                 </div>
             </Main>
 
 
             <Footer>
-                <RedButton name="Cancelar" onClick={() => navigate("/home")}></RedButton>
-                <GreenButton name="Pagamento" onClick={() => navigate("/checkout")}></GreenButton>
+                <RedButton onClick={() => navigate("/home")}>Cancelar</RedButton>
+                <GreenButton onClick={() => navigate("/checkout")}>Pagamento</GreenButton>
             </Footer>
         </HomeContainer>
     )
@@ -265,5 +262,28 @@ z-index: 1;
 display: flex;
 justify-content: center;
 align-items: center;
-justify-content: space-between;
+justify-content: center;
+gap: 20px;
+`
+
+const RedButton = styled.button`
+width: 160px;
+height: 47px;
+background-color: #BC6969;
+border-radius: 13px;
+font-size: 20px;
+color: white;
+box-shadow: 0px 4px 4px rgba(0,0,0,0.18);
+margin-left: 2.2%;
+`
+
+const GreenButton = styled.button`
+width: 160px;
+height: 47px;
+background-color: #92BD99;
+border-radius: 13px;
+font-size: 20px;
+color: white;
+margin-right: 2.5%;
+box-shadow: 0px 4px 4px rgba(0,0,0,0.18);
 `
