@@ -22,7 +22,7 @@ export default function Home() {
         axios.get(`${process.env.REACT_APP_API_URL}/courses`)
             .then(res => {
                 setCourses(res.data)
-                console.log("courses", res.data)
+                //console.log("courses", res.data)
 
             })
             .catch(err => {
@@ -34,7 +34,7 @@ export default function Home() {
         axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
             .then(res => {
                 setCart(res.data)
-                console.log("cart", res.data)
+                //console.log("cart", res.data)
             })
             .catch(err => {
                 alert(err.message)
@@ -43,9 +43,9 @@ export default function Home() {
     return (
         <HomeContainer>
             <Header />
-            <CoursesContainer>{courses.length!==0 ? courses.map(c =>
-                <CourseCard atualiza={atualiza} setAtualiza={setAtualiza} cor={c.theme} descricao={c.description} inCart={cart.filter((i)=>i.course_name===c.title).length!==0} title={c.title} price={(c.price).toFixed(2)} />
-            ) : <SpanTxt>Ainda não foram adicionados cursos ao servidor</SpanTxt>}   
+            <CoursesContainer>{courses.length !== 0 ? courses.map(c =>
+                <CourseCard atualiza={atualiza} setAtualiza={setAtualiza} cor={c.theme} descricao={c.description} inCart={cart.filter((i) => i.course_name === c.title).length !== 0} title={c.title} price={(c.price).toFixed(2).replace(".", ",")} />
+            ) : <SpanTxt>Ainda não foram adicionados cursos ao servidor</SpanTxt>}
             </CoursesContainer>
             <FooterHome />
         </HomeContainer>

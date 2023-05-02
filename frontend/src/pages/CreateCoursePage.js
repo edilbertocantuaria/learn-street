@@ -36,7 +36,7 @@ export default function CreateCoursePage() {
         if (theme === "") return alert("Você precisa selecionar um tema!");
 
         const formToApi = { ...form, price: handlePrice(form.price), theme };
-        console.log(formToApi);
+        //console.log(formToApi);
 
         axios.post(`${process.env.REACT_APP_API_URL}/courses`, formToApi, config)
             .then(res => {

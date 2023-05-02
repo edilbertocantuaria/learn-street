@@ -30,12 +30,12 @@ export default function Home() {
             setCourses(coursesAddedAtCart);
             setLoading(false);
         });
-        console.log(courses)
+        //console.log(courses)
     }, []);
 
     useEffect(() => {
-        console.log(courses);
-        console.log(courses.length);
+        //console.log(courses);
+        //console.log(courses.length);
         let finalValue = 0;
         courses.forEach((course) => {
             if (typeof course.course_cost === "number") {
@@ -43,7 +43,7 @@ export default function Home() {
             } else {
                 finalValue += Number(course.course_cost);
             }
-            console.log(typeof (finalValue))
+            //console.log(typeof (finalValue))
         });
         setTotalValue(finalValue);
     }, [courses]);
