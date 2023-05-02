@@ -12,7 +12,7 @@ export default function AddCart(props) {
     }
 
     function addCart() {
-        axios.post(`${process.env.REACT_APP_API_URL}/cart`,
+        axios.post(`https://learnstreet-api.onrender.com/cart`,
             {
                 course_name: props.title,
                 course_cost: props.price

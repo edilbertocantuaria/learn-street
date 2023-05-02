@@ -30,15 +30,15 @@ export default function SignUp() {
         setRegistering("");
         setIsLoading(true);
 
-        console.log({
+        /*console.log({
             name: username,
             email: email,
             password: password,
             passwordConfirm: passwordConfirm
-        })
+        })*/
 
         if (password === passwordConfirm) {
-            const request = axios.post(`${process.env.REACT_APP_API_URL}/signup`,
+            const request = axios.post(`https://learnstreet-api.onrender.com/signup`,
                 {
                     name: username,
                     email: email,
