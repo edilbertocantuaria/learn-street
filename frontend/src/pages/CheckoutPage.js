@@ -23,7 +23,7 @@ export default function CheckoutPage() {
     function handleCheckout(e) {
         e.preventDefault();
 
-        axios.post(`https://learnstreet-api.onrender.com/checkout`, form, config)
+        axios.post(`${process.env.REACT_APP_API_URL}/checkout`, form, config)
             .then(res => {
                 alert("Pagamento efetuado com sucesso!");
                 navigate("/home");

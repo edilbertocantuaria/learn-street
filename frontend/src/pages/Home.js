@@ -19,7 +19,7 @@ export default function Home() {
     }
 
     useEffect(() => {
-        axios.get(`https://learnstreet-api.onrender.com/courses`)
+        axios.get(`${process.env.REACT_APP_API_URL}/courses`)
             .then(res => {
                 setCourses(res.data)
                 //console.log("courses", res.data)
@@ -31,7 +31,7 @@ export default function Home() {
     }, [])
 
     useEffect(() => {
-        axios.get(`https://learnstreet-api.onrender.com/cart`, config)
+        axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
             .then(res => {
                 setCart(res.data)
                 //console.log("cart", res.data)

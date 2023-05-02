@@ -24,7 +24,7 @@ export default function Home() {
     }
 
     useEffect(() => {
-        const request = axios.get(`https://learnstreet-api.onrender.com/cart`, config)
+        const request = axios.get(`${process.env.REACT_APP_API_URL}/cart`, config)
         request.then(response => {
             const coursesAddedAtCart = response.data;
             setCourses(coursesAddedAtCart);
