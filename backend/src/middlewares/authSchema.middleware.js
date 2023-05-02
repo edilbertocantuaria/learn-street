@@ -13,7 +13,7 @@ export async function authValidation(req, res, next) {
         if (!session) return res.sendStatus(401);
 
         res.locals.session = session;
-        console.log("chamou aq")
+        //console.log("chamou aq")
         next();
     }
     catch (err) {
